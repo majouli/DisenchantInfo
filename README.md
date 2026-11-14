@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/logo.png" width="180" alt="Disenchant Info logo">
+  <img src=".github/media/logo.png" width="180" alt="Disenchant Info logo">
 </p>
 
 <h1 align="center">Disenchant Info</h1>
@@ -24,9 +24,9 @@
 | a herb                              | Herbalism     |
 
 <p align="center">
-  <img src="media/3-disenchanting-tooltip.png" alt="Disenchanting tooltip">
+  <img src=".github/media/3-disenchanting-tooltip.png" alt="Disenchanting tooltip">
   &nbsp;
-  <img src="media/4-skinning-tooltip.png" alt="Skinning tooltip">
+  <img src=".github/media/4-skinning-tooltip.png" alt="Skinning tooltip">
 </p>
 
 ## Features
@@ -42,9 +42,9 @@
 - **Five languages** – English, Deutsch, Français, Español, Русский, or automatic.
 
 <p align="center">
-  <img src="media/1-settings-window.png" alt="Settings window" width="420">
+  <img src=".github/media/1-settings-window.png" alt="Settings window" width="420">
   &nbsp;
-  <img src="media/2-only-my-professions.png" alt="Only my professions" width="420">
+  <img src=".github/media/2-only-my-professions.png" alt="Only my professions" width="420">
 </p>
 
 ## Install
