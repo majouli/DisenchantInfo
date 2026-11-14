@@ -1,68 +1,76 @@
-# Disenchant Info
+<p align="center">
+  <img src="media/logo.png" width="180" alt="Disenchant Info logo">
+</p>
 
-Zeigt im Tooltip, was deine Berufe herausholen – Material, Menge, Chance und
-AH-Preis:
+<h1 align="center">Disenchant Info</h1>
 
-| Beruf        | Tooltip über …   | Zusätzlich                                 |
-|--------------|------------------|--------------------------------------------|
-| Entzaubern   | Gegenständen     |                                            |
-| Kürschnerei  | Tieren           | nötige Stufe; neue Forever-Tiere geschätzt |
-| Bergbau      | Erzvorkommen     | nötige Stufe, wie oft abbaubar             |
-| Kräuterkunde | Pflanzen         | nötige Stufe, Beifunde                     |
+<p align="center">
+  <b>Know what you get before you click.</b><br>
+  A WoW Forever addon: hover an item, a beast, an ore vein or a herb and the tooltip shows
+  what your profession turns it into – materials, chances, amounts and auction house prices.
+</p>
 
-## Bedienung
-- **/dei** oder Linksklick auf das Minimap-Icon öffnet das Fenster,
-  Rechtsklick schaltet alle Tooltip-Zeilen an / aus.
-- Standard: nur die Berufe, die der Charakter gelernt hat (automatisch erkannt).
-- Jeder Beruf hat eine eigene Karte zum An- und Ausschalten.
-- Das Zahnrad wählt die Sprache: Deutsch, English, Français, Español, Русский
-  oder automatisch (die Sprache des Spiels).
+<p align="center">
+  <a href="https://github.com/majouli/DisenchantInfo/releases/latest">Download</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#features">Features</a>
+</p>
 
-## AH-Preise
-Bei jedem Besuch im Auktionshaus holt das Addon unbemerkt die Preise aller
-Materialien. Sucht man selbst, wartet der Scan kurz und macht dann weiter.
-Materialien ohne Angebot werden nur einmal pro Stunde erneut gesucht.
+| Hover over …                        | Profession    |
+|-------------------------------------|---------------|
+| an item you can disenchant          | Disenchanting |
+| a beast – alive or a corpse to skin | Skinning      |
+| an ore vein                         | Mining        |
+| a herb                              | Herbalism     |
 
-## Installation
-Den Ordner `DisenchantInfo` nach
-`World of Warcraft\_forever_\Interface\AddOns\` kopieren und das Spiel
-starten (oder `/reload`).
+<p align="center">
+  <img src="media/3-disenchanting-tooltip.png" alt="Disenchanting tooltip">
+  &nbsp;
+  <img src="media/4-skinning-tooltip.png" alt="Skinning tooltip">
+</p>
 
----
+## Features
 
-## Entwicklung
+- **Disenchanting** – dust, essences, shards and crystals an item can give, with chance and amount.
+- **Skinning** – leathers, hides and scales of a beast or its corpse, plus the skill it needs.
+  Creatures added in WoW Forever get an estimate from beasts of their level.
+- **Mining** – ore, stones and gems per vein, the skill it needs and how often it can be mined.
+- **Herbalism** – the herb, its bonus herbs and the skill it needs.
+- **Auction house prices, automatic** – every time you open the auction house the addon quietly
+  looks up all materials. When you search yourself, it pauses. A single bait listing does not set the price.
+- **Only your professions** – by default the tooltip shows the professions your character has learned.
+- **Five languages** – English, Deutsch, Français, Español, Русский, or automatic.
 
-### Aufbau
-| Ordner         | Inhalt                                                             |
-|----------------|--------------------------------------------------------------------|
-| `Data/`        | Tabellen. `Disenchant.lua` von Hand gepflegt, alle anderen erzeugt |
-| `Locales/`     | `Locales.lua` (Sprachsystem) und eine Datei pro Sprache            |
-| `Core/`        | Einstellungen, Berufserkennung, Preise, AH-Scan                    |
-| `Professions/` | was Entzaubern, Kürschnern und Sammeln ergibt                      |
-| `UI/`          | Tooltip, Fenster, Bausteine, Minimap-Icon                          |
+<p align="center">
+  <img src="media/1-settings-window.png" alt="Settings window" width="420">
+  &nbsp;
+  <img src="media/2-only-my-professions.png" alt="Only my professions" width="420">
+</p>
 
-Die Ladereihenfolge steht in `DisenchantInfo.toc`.
+## Install
 
-### Neue Forever-Version
-Die erzeugten Tabellen (`Data/Skinning.lua`, `Mining.lua`, `Herbalism.lua`,
-`ItemNames.lua`) nie von Hand ändern, sondern neu erzeugen:
+**WowUp:** Get Addons → Install from URL → `https://github.com/majouli/DisenchantInfo`
 
-```
-python tools/gen_professions.py --build <Client-Build>
-```
+**By hand:** download `DisenchantInfo-<version>-forever.zip` from the
+[latest release](https://github.com/majouli/DisenchantInfo/releases/latest) and unpack it into
+`World of Warcraft\_forever_\Interface\AddOns\`.
 
-Die Build-Nummer steht auf wago.tools (z. B. `1.60.1.70790`). Das Skript lädt
-alle Quellen selbst in einen Zwischenspeicher und schreibt die Dateien neu.
-Danach `tools/check.ps1` laufen lassen und `## Version` in der `.toc` erhöhen.
+## Usage
 
-Neue Sprache: eine Datei `Locales/<code>.lua` anlegen, in `ns.LANGUAGES`
-(`Locales/Locales.lua`), in `LANGUAGES` des Generators und in der `.toc`
-eintragen.
+- `/dei` or left-click the minimap icon – settings window
+- Right-click the minimap icon – all tooltip lines on / off
+- Options: material names, compact one-line view, chances, AH prices, only with Shift
 
-### Datenquellen
-- Beute, Chancen, Mengen, Abbau-Anzahl: [cMaNGOS classic-db](https://github.com/cmangos/classic-db)
-  (GPL-3.0); übernommen werden nur Zahlen und Namen.
-- Nötige Stufe von Erz- und Kräutervorkommen, Materialnamen in allen Sprachen:
-  Tabellen `Lock` und `ItemSparse` des Forever-Clients über [wago.tools](https://wago.tools).
-- Entzauber-Tabellen (`Data/Disenchant.lua`): Classic-Regeln nach benötigter
-  Stufe, Qualität und Art; Erfahrungswerte, keine Garantie.
+## Data
+
+- Loot, chances and amounts: [cMaNGOS classic-db](https://github.com/cmangos/classic-db) (GPL-3.0)
+- Skill requirements and item names: tables of the WoW Forever client via [wago.tools](https://wago.tools)
+- Disenchanting: Classic rules by required level, quality and item type
+
+Values are reference values from the Classic loot tables – WoW Forever may differ in places.
+
+## License
+
+[GPL-3.0](LICENSE.txt)
+
+A special thanks to Adam.
