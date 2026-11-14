@@ -1,0 +1,39 @@
+## Interface: 16001
+## Title: Disenchant Info
+## Notes: Shows what disenchanting, skinning, mining and herbalism yield, with AH prices.
+## Version: 3.1.0
+## IconTexture: Interface\Icons\INV_Enchant_Disenchant
+## Category: Professions
+## X-License: GPL-3.0
+## AddonCompartmentFunc: DisenchantInfo_OnAddonCompartmentClick
+## SavedVariables: DisenchantInfoDB
+
+Data\Disenchant.lua
+Data\Skinning.lua
+Data\Mining.lua
+Data\Herbalism.lua
+Data\ItemNames.lua
+
+Locales\Locales.lua
+Locales\deDE.lua
+Locales\enUS.lua
+Locales\frFR.lua
+Locales\esES.lua
+Locales\ruRU.lua
+
+Core\Util.lua
+Core\Init.lua
+Core\Professions.lua
+Core\Loot.lua
+Core\Prices.lua
+
+Professions\Disenchanting.lua
+Professions\Skinning.lua
+Professions\Gathering.lua
+
+Core\Scanner.lua
+
+UI\Tooltip.lua
+UI\MinimapButton.lua
+UI\MenuWidgets.lua
+UI\Menu.lua
